@@ -1,3 +1,18 @@
+:root {
+  --rb-red: #d84e55;
+  --rb-red-600: #c63b42;
+  --rb-red-700: #b02b32;
+  --rb-navy: #1b2230;
+  --rb-text: #1f2937;
+  --rb-muted: #6b7280;
+  --rb-bg: #f7f7fb;
+  --rb-card: #ffffff;
+  --rb-border: #e5e7eb;
+  --rb-focus: #fca5a5;
+  --rb-radius: 12px;
+  --rb-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +20,109 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--rb-bg);
+  color: var(--rb-text);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Layout helpers */
+.rb-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Header */
+.rb-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, var(--rb-navy) 0%, #222a3a 100%);
+  color: #fff;
+  box-shadow: var(--rb-shadow);
+}
+.rb-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 54px;
+}
+.rb-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.rb-brand .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rb-red);
+  box-shadow: 0 0 0 3px rgba(216,78,85,0.2);
+}
+
+/* Cards */
+.rb-card {
+  background: var(--rb-card);
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  box-shadow: var(--rb-shadow);
+}
+
+/* Inputs */
+.rb-input {
+  width: 90%;
+  padding: 12px 14px;
+  border: 2px solid var(--rb-border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.rb-input:focus {
+  border-color: var(--rb-red);
+  box-shadow: 0 0 0 3px var(--rb-focus);
+}
+
+/* Buttons */
+.rb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform .05s ease, background-color .2s ease;
+}
+.rb-btn:active { transform: translateY(1px); }
+.rb-btn-primary {
+  background: var(--rb-red);
+  color: #fff;
+}
+.rb-btn-primary:hover { background: var(--rb-red-600); }
+.rb-btn-primary:active { background: var(--rb-red-700); }
+
+/* Tags / Pills */
+.rb-pill {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Utility */
+.rb-muted { color: var(--rb-muted); }
